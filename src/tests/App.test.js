@@ -34,16 +34,15 @@ describe('Teste o componente <App.js />', () => {
 
     userEvent.click(favoritesLink);
     const { pathname } = history.location;
-    expect(pathname).toBe('/about');
+    expect(pathname).toBe('/favorites');
   });
 
-  test('Verifica se há uma página Not Found ao entrar em uma URL desconhecida.', () => {
+  test('Verifica se há uma página Not Found ao entrar em uma URL desconhecida', () => {
     const { history } = renderWithRouter(<App />);
 
-    history.push('/pagina/que-nao-existe/'); // Source: Trybe Course
+    history.push('/biruleibe'); // Source: Trybe Course
 
-    const notFoundTitle = screen.getByRole('heading',
-      { name: 'Page requested not found' });
+    const notFoundTitle = screen.getByText('Page requested not found');
     expect(notFoundTitle).toBeInTheDocument();
   });
 });
