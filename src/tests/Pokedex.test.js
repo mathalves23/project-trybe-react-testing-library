@@ -24,7 +24,7 @@ describe('Teste do componente <Pokedex.js />', () => {
   test('Verifica se é exibido o próximo Pokémon depois do clique', () => {
     renderWithRouter(<App />);
     // Verificando se existe um botão com o texto Próximo pokémon:
-    const nextButton = screen.getByRole('button', { name: /próximo pokémon/i});
+    const nextButton = screen.getByRole('button', { name: /próximo pokémon/i });
     expect(nextButton).toBeInTheDocument();
 
     // Verificando se os próximos Pokémons são mostrados, um de cada vez
@@ -40,7 +40,7 @@ describe('Teste do componente <Pokedex.js />', () => {
   test('Verifica se o primeiro Pokémon da lista será mostrado após o último', () => {
     renderWithRouter(<App />);
     const LIST_LENGTH = 9; // Tamanho da lista de pokémons na tela: 9.
-    const nextButton = screen.getByRole('button', { name: /próximo pokémon/i});
+    const nextButton = screen.getByRole('button', { name: /próximo pokémon/i });
     for (let index = 0; index < LIST_LENGTH; index += 1) { // Estrutura que vai repetir pra cada clique de Próximo.
       userEvent.click(nextButton); // Botão que já foi criado no segundo teste
     }
