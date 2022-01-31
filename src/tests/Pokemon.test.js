@@ -40,4 +40,11 @@ describe('Teste do componente <Pokemon.js />', () => {
     const pokemonImage = screen.getByRole('img', { name: 'Pikachu sprite' }); // pega o Alt da imagem
     expect(pokemonImage).toHaveAttribute('src', imageSrc);
   });
+
+  test('Verifica se o card contém link para exibir detalhes do Pokémon', () => {
+    renderWithRouter(<App />);
+    // O link deve possuir a URL /pokemons/<id>, onde <id> é o id do Pokémon exibido;
+    const linkDetails = screen.getByRole('link', { name: /more details/i });
+    expect(linkDetails).toBeInTheDocument();
+  });
 });
